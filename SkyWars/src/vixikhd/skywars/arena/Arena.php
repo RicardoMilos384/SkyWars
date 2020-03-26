@@ -30,6 +30,7 @@ use pocketmine\event\player\PlayerInteractEvent;
 use pocketmine\event\player\PlayerMoveEvent;
 use pocketmine\event\player\PlayerQuitEvent;
 use pocketmine\event\player\PlayerRespawnEvent;
+use pocketmine\event\block\BlockBreakEvent;
 use pocketmine\inventory\ChestInventory;
 use pocketmine\item\Item;
 use pocketmine\level\Level;
@@ -350,6 +351,19 @@ class Arena implements Listener {
 
         if($this->inGame($player) && $this->phase == self::PHASE_LOBBY) {
             $event->setCancelled(true);
+        }
+    }
+    
+    /**
+     * @param BlockBreakEvent $event
+     */
+    public function onBreak(BlockBreakEvent $event) {
+        $player = $event->getPlayer();
+        $block = $event->get lock();
+        
+        if($this->inGame($player) && $this->phase == self::PHASE_LOBBY){
+            $event->setCancelled(true);
+            $player->sendMessage("§a> dont break the block when lobby phase");
         }
     }
 
