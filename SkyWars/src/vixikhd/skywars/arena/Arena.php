@@ -359,7 +359,7 @@ class Arena implements Listener {
      */
     public function onBreak(BlockBreakEvent $event) {
         $player = $event->getPlayer();
-        $block = $event->get lock();
+        $block = $event->getBlock();
         
         if($this->inGame($player) && $this->phase == self::PHASE_LOBBY){
             $event->setCancelled(true);
