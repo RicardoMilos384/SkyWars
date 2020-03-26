@@ -30,6 +30,7 @@ use vixikhd\skywars\arena\Arena;
 use vixikhd\skywars\arena\MapReset;
 use vixikhd\skywars\commands\SkyWarsCommand;
 use vixikhd\skywars\math\Vector3;
+use vixikhd\skywars\EmptyArenaChooser;
 use vixikhd\skywars\provider\YamlDataProvider;
 
 /**
@@ -40,6 +41,9 @@ class SkyWars extends PluginBase implements Listener {
 
     /** @var YamlDataProvider */
     public $dataProvider;
+
+    /** @var EmptyArenaChooser $emptyArenaChooser */
+    public $emptyArenaChooser;
 
     /** @var Command[] $commands */
     public $commands = [];
@@ -56,6 +60,7 @@ class SkyWars extends PluginBase implements Listener {
     public function onEnable() {
         $this->getServer()->getPluginManager()->registerEvents($this, $this);
         $this->dataProvider = new YamlDataProvider($this);
+        $this->emptyArenaChooser = new EmptyArenaChooser($this);
         $this->getServer()->getCommandMap()->register("SkyWars", $this->commands[] = new SkyWarsCommand($this));
     }
 
@@ -212,5 +217,14 @@ class SkyWars extends PluginBase implements Listener {
                     break;
             }
         }
+    }
+
+    public function joinToRandomArena(Player $player) {
+        $arena = $this->emptyArenaChooser->getRandomArena();
+        if(!is_null($arena)) {
+            $arena->joinToArena($player);
+            return;
+        }
+        $player->sendMessage("§cCant Join Arena");
     }
 }
