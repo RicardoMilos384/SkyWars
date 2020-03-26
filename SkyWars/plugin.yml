@@ -1,6 +1,6 @@
 name: SkyWars
 api: 3.0.0
-version: 1.2.1
+version: 1.2.2
 main: vixikhd\skywars\SkyWars
 author: VixikHD
 description: SkyWars minigame plugin
@@ -13,7 +13,7 @@ permissions:
     children:
       sw.cmd.help:
         description: Permission for /sw help
-        default: op
+        default: true
       sw.cmd.create:
         description: Permission for /sw create
         default: op
@@ -26,3 +26,6 @@ permissions:
       sw.cmd.arenas:
         description: Permission for /sw arenas
         default: op
+      sw.cmd.join:
+        description: Permission for /sw join
+        default: true
