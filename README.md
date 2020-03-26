@@ -133,7 +133,7 @@ sw.cmd:
             description: Permission for /sw arenas  
             default: op
         sw.cmd.join:
-            description: Permission for /sw join
+            description: Permission for /sw join command
             default: true
 			
 ```
