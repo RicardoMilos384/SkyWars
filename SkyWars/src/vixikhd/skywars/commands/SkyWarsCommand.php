@@ -74,7 +74,8 @@ class SkyWarsCommand extends Command implements PluginIdentifiableCommand {
                     "§7/sw create : Create SkyWars arena\n".
                     "§7/sw remove : Remove SkyWars arena\n".
                     "§7/sw set : Set SkyWars arena\n".
-                    "§7/sw arenas : Displays list of arenas");
+                    "§7/sw arenas : Displays list of arenas\n".
+                    "§7/sw join : Join to random arena");
 
                 break;
             case "join":
