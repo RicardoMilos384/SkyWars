@@ -81,7 +81,7 @@
 Commands:
     /sw help:
         Description: Displays all SkyWars commands
-        Permission: sw.cmd.help (OP)
+        Permission: sw.cmd.help (ALL)
     /sw create:
         Description: Create new arena
         Permission: sw.cmd.create (OP)
@@ -99,6 +99,9 @@ Commands:
     /sw arenas:
         Description: Displays list of all arenas
         Permission: sw.cmd.arenas (OP)
+    /sw join:
+        Description: Join to random arena of skywars
+        Permission: sw.cmd.join (ALL)
 ```
 </p>
 
@@ -116,7 +119,7 @@ sw.cmd:
     children:  
         sw.cmd.help:
             description: Permission for /sw help  
-            default: op  
+            default: true
         sw.cmd.create:  
             description: Permission for /sw create  
             default: op
@@ -128,7 +131,10 @@ sw.cmd:
             default: op  
         sw.cmd.arenas:  
             description: Permission for /sw arenas  
-            default: op    
+            default: op
+        sw.cmd.join:
+            description: Permission for /sw join
+            default: true
 			
 ```
 </p>
