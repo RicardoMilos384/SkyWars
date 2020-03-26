@@ -77,6 +77,13 @@ class SkyWarsCommand extends Command implements PluginIdentifiableCommand {
                     "§7/sw arenas : Displays list of arenas");
 
                 break;
+            case "join":
+                if(!$sender->hasPermission("sw.cmd.join")) {
+                    $sender->sendMessage("§cYou have not permissions to use this command!");
+                    break;
+                }
+                $this->plugin->joinToRandomArena($sender);
+                break;
             case "create":
                 if(!$sender->hasPermission("sw.cmd.create")) {
                     $sender->sendMessage("§cYou have not permissions to use this command!");
