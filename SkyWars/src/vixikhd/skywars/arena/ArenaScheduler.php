@@ -22,9 +22,7 @@ namespace vixikhd\skywars\arena;
 
 use pocketmine\level\Level;
 use pocketmine\level\Position;
-use pocketmine\level\sound\AnvilUseSound;
-use pocketmine\level\sound\ClickSound;
-use pocketmine\level\sound\PopSound;
+use pocketmine\level\sound\{AnvilUseSound, ClickSound, PopSound};
 use pocketmine\scheduler\Task;
 use pocketmine\tile\Sign;
 use vixikhd\skywars\math\Time;
