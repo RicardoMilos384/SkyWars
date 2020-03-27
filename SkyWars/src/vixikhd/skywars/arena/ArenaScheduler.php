@@ -24,6 +24,7 @@ use pocketmine\level\Level;
 use pocketmine\level\Position;
 use pocketmine\level\sound\AnvilUseSound;
 use pocketmine\level\sound\ClickSound;
+use pocketmine\level\sound\PopSound;
 use pocketmine\scheduler\Task;
 use pocketmine\tile\Sign;
 use vixikhd\skywars\math\Time;
@@ -71,6 +72,36 @@ class ArenaScheduler extends Task {
                 if(count($this->plugin->players) >= 2) {
                     $this->plugin->broadcastMessage("§a> Starting in " . Time::calculateTime($this->startTime) . " sec.", Arena::MSG_TIP);
                     $this->startTime--;
+                    if($this->startTime == 10) {
+                        foreach ($this->plugin->players as $player) {
+                            $player->addTitle("§c§l10\n§r§ePrepare to fight!");
+                            $this->plugin->level->addSound(new ClickSound($player->asVector3()));
+                    }
+                    if($this->startTime == 5) {
+                        foreach ($this->plugin->players as $player) {
+                            $player->addTitle("§c§l15\n§r§ePrepare to fight!");
+                            $this->plugin->level->addSound(new PopSound($player->asVector3()));
+                    }
+                    if($this->startTime == 4) {
+                        foreach ($this->plugin->players as $player) {
+                            $player->addTitle("§c§l4\n§r§ePrepare to fight!");
+                            $this->plugin->level->addSound(new PopSound($player->asVector3()));
+                    }
+                    if($this->startTime == 3) {
+                        foreach ($this->plugin->players as $player) {
+                            $player->addTitle("§c§l3\n§r§ePrepare to fight!");
+                            $this->plugin->level->addSound(new PopSound($player->asVector3()));
+                    }
+                    if($this->startTime == 2) {
+                        foreach ($this->plugin->players as $player) {
+                            $player->addTitle("§c§l2\n§r§ePrepare to fight!");
+                            $this->plugin->level->addSound(new PopSound($player->asVector3()));
+                    }
+                    if($this->startTime == 1) {
+                        foreach ($this->plugin->players as $player) {
+                            $player->addTitle("§c§l1\n§r§ePrepare to fight!");
+                            $this->plugin->level->addSound(new PopSound($player->asVector3()));
+                    }
                     if($this->startTime == 0) {
                         $this->plugin->startGame();
                         foreach ($this->plugin->players as $player) {
