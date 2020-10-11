@@ -54,10 +54,6 @@ class SkyWarsCommand extends Command implements PluginIdentifiableCommand {
      * @return mixed|void
      */
     public function execute(CommandSender $sender, string $commandLabel, array $args) {
-        if(!$sender->hasPermission("sw.cmd")) {
-            $sender->sendMessage("§cYou have not permissions to use this command!");
-            return;
-        }
         if(!isset($args[0])) {
             $sender->sendMessage("§cUsage: §7/sw help");
             return;
